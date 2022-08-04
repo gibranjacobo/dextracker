@@ -1,12 +1,10 @@
-console.log("hello world");
-
 // funcion para cuando la llamada es exitosa
 function exito() {
     var datos = JSON.parse(this.responseText); //convertir a JSON
-    console.log(datos.pokemon_entries);
+    //console.log(datos.pokemon_entries);
     for (let i = 0; i < datos.pokemon_entries.length; i++) {
-        //console.log(datos.results[i].name);
-        document.getElementById('pokelist').innerHTML += '<li class="pokemon-entry">' + datos.pokemon_entries[i].pokemon_species.name + '</li>';
+        
+        document.getElementById('pokelist').innerHTML += '<li class="pokemon-entry"><img class="pokemon-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + datos.pokemon_entries[i].entry_number + '.png">'  + datos.pokemon_entries[i].pokemon_species.name + '</li>';
     }
     
 }
